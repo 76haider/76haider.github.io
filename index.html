@@ -366,4 +366,694 @@
     border-bottom:1px solid var(--line-soft); transition:padding-left .2s;}
   .cert:last-child{border-bottom:none; padding-bottom:0;}
   .cert:hover{padding-left:6px;}
-  .cert-ico{width:36px; height:36px; border-radiu
+  .cert-ico{width:36px; height:36px; border-radius:7px; background:var(--paper-raised);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    color:var(--gold); font-size:0.9rem;}
+  .cert-body .cb-name{font-size:0.9rem; color:var(--navy); font-weight:500; line-height:1.3;}
+  .cert-body .cb-iss{font-family:var(--mono); font-size:0.67rem; color:var(--ink-soft); margin-top:2px;}
+
+  .contact-panel{background:var(--navy); color:var(--paper); border-radius:10px;
+    padding:26px 28px; position:relative; overflow:hidden;
+    border:1px solid var(--navy-deep);}
+  .contact-panel::before{content:''; position:absolute; top:-90px; right:-90px;
+    width:240px; height:240px; border-radius:50%;
+    background:radial-gradient(circle, rgba(201,162,39,0.16), transparent 70%);}
+  .contact-panel > *{position:relative; z-index:1;}
+  .contact-panel h3{font-family:var(--serif); font-weight:600; font-size:1.35rem; margin-bottom:8px;}
+  .contact-panel p{color:rgba(243,241,234,0.7); font-size:0.9rem; margin-bottom:20px; max-width:42ch;}
+  .contact-links{display:flex; flex-direction:column; gap:2px;}
+  .c-link{display:flex; align-items:center; gap:12px; padding:11px 12px;
+    border-radius:6px; font-size:0.88rem; color:rgba(243,241,234,0.88);
+    transition:background .18s, transform .18s, color .18s;}
+  .c-link i{width:16px; font-size:0.82rem; color:var(--gold-soft);}
+  .c-link .c-arr{margin-left:auto; opacity:0.35; font-size:0.72rem; transition:opacity .18s, transform .18s;}
+  .c-link:hover{background:rgba(243,241,234,0.06); color:var(--gold-soft);}
+  .c-link:hover .c-arr{opacity:1; transform:translateX(3px);}
+
+  .resume-btn{margin-top:16px; display:inline-flex; align-items:center; gap:8px;
+    padding:11px 18px; background:var(--gold); color:var(--navy); border-radius:6px;
+    font-weight:600; font-size:0.85rem; transition:background .18s, transform .18s; width:fit-content;}
+  .resume-btn:hover{background:var(--gold-soft); transform:translateY(-2px);}
+
+  /* ============ FOOTER ============ */
+  footer{border-top:1px solid var(--line); padding:26px 0; margin-top:20px;}
+  .foot-inner{display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:0.72rem; color:var(--ink-soft); flex-wrap:wrap; gap:10px;}
+  .foot-inner .f-left{display:flex; align-items:center; gap:10px;}
+  .foot-inner .f-dot{width:5px; height:5px; border-radius:50%; background:var(--teal);
+    animation:ping 2s infinite;}
+
+  /* ============ BACK TO TOP ============ */
+  .to-top{position:fixed; right:24px; bottom:24px; z-index:40;
+    width:44px; height:44px; border-radius:50%; background:var(--navy); color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .25s, transform .2s;
+    box-shadow:0 12px 26px -12px rgba(16,35,63,0.5);}
+  .to-top.show{opacity:1; pointer-events:auto;}
+  .to-top:hover{transform:translateY(-3px);}
+
+  /* ============ REVEAL ============ */
+  .reveal{opacity:0; transform:translateY(20px);
+    transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .photo-ring, .eyebrow .dot, .dash-topbar .live .d, .photo-info .pi-status .d,
+    .foot-inner .f-dot{animation:none;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    .sk-fill, .dash-kpi .dk-bar span{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollBar"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <div class="brand-mark">MH</div>
+      <div class="brand-text">
+        <span class="brand-name">Muhammad Haider</span>
+        <span class="brand-sub">Data Analyst</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="Haider_Resume.pdf" download>
+      <i class="fa-solid fa-file-arrow-down"></i> Resume
+    </a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in-view">
+      <div class="eyebrow"><span class="dot"></span> Open to entry-level roles · Karachi</div>
+      <h1>I turn <span class="accent">messy data</span> into dashboards people actually use.</h1>
+      <p class="lede">Final-year CS student at SMIU. Two internships, six shipped projects, and a stack built around Python, SQL, and Streamlit.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="#projects">View projects <i class="fa-solid fa-arrow-down"></i></a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hs-num"><span class="count-up" data-target="2">0</span></div>
+          <div class="hs-lbl">Internships</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-num"><span class="count-up" data-target="6">0</span></div>
+          <div class="hs-lbl">Projects</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-num"><span class="count-up" data-target="3">0</span></div>
+          <div class="hs-lbl">Certifications</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero dashboard -->
+    <div class="hero-dash reveal in-view">
+      <div class="dash-topbar">
+        <span class="win-dot"></span><span class="win-dot"></span><span class="win-dot"></span>
+        <span class="dash-title">skill_overview.py</span>
+        <span class="live"><span class="d"></span>live</span>
+      </div>
+
+      <div class="dash-kpis">
+        <div class="dash-kpi">
+          <div class="dk-label">Python</div>
+          <div class="dk-val"><span class="count-up" data-target="90">0</span><span class="sfx">%</span></div>
+          <div class="dk-bar"><span data-fill="90"></span></div>
+        </div>
+        <div class="dash-kpi">
+          <div class="dk-label">SQL</div>
+          <div class="dk-val"><span class="count-up" data-target="85">0</span><span class="sfx">%</span></div>
+          <div class="dk-bar"><span data-fill="85"></span></div>
+        </div>
+        <div class="dash-kpi">
+          <div class="dk-label">Dashboards</div>
+          <div class="dk-val"><span class="count-up" data-target="82">0</span><span class="sfx">%</span></div>
+          <div class="dk-bar"><span data-fill="82"></span></div>
+        </div>
+      </div>
+
+      <div class="dash-charts">
+        <div class="dash-chart bars">
+          <div class="dc-cap"><span>Skill proficiency</span><span class="dc-val">/100</span></div>
+          <canvas id="heroBars"></canvas>
+        </div>
+        <div class="dash-chart donut">
+          <div class="dc-cap"><span>Tool mix</span></div>
+          <canvas id="heroDonut"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-head-left">
+        <div class="sec-num">01 / About</div>
+        <h2>Who I am, briefly.</h2>
+        <p>Final-year CS student who learned data by breaking things, then fixing them properly.</p>
+      </div>
+      <div class="sec-head-right">SMIU Karachi<br>BSCS · Final semester</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-prose reveal">
+        <p>I'm in my final semester of a BS in Computer Science at <span class="hl">Sindh Madressatul Islam University, Karachi</span>. Most of what I know about data, I learned by solving real problems — the RM office at FFC was tracking assets on Excel with no real-time visibility, so I rebuilt it as a Python dashboard with Pandas, Plotly, and Streamlit.</p>
+        <p>I like problems with a clear right answer hiding in messy data — which is why the <span class="hl">math and logic side</span> of this field pulls me in, not just the tools. Lately that's meant pushing past dashboards into NLP and computer vision: an ambiguity detector for newspaper text, a facial-recognition attendance system, a semantic analyzer for long documents.</p>
+        <p>I'm graduating into an entry-level search — <span class="hl">Data Analyst roles first</span>, with Database Administrator work as a strong parallel track given how much of my project work is database-backed. Data Science is the direction, not the day-one claim.</p>
+      </div>
+
+      <div class="about-side reveal">
+        <div class="photo-card">
+          <div class="photo-wrap">
+            <div class="photo-ring"></div>
+            <div class="photo-inner">
+              <img src="haider-photo.jpg" alt="Muhammad Haider">
+            </div>
+          </div>
+          <div class="photo-info">
+            <div class="pi-name">Muhammad Haider</div>
+            <div class="pi-role">Data Analyst</div>
+            <div class="pi-status"><span class="d"></span> Available for hire</div>
+          </div>
+        </div>
+
+        <div class="mini-facts">
+          <div class="mf-title">// Quick facts</div>
+          <div class="mf-row"><span class="mf-k">Location</span><span class="mf-v">Karachi, PK</span></div>
+          <div class="mf-row"><span class="mf-k">Education</span><span class="mf-v">BSCS · SMIU</span></div>
+          <div class="mf-row"><span class="mf-k">Core stack</span><span class="mf-v">Python · SQL</span></div>
+          <div class="mf-row"><span class="mf-k">Focus</span><span class="mf-v">Data Analyst</span></div>
+          <div class="mf-row"><span class="mf-k">Direction</span><span class="mf-v">Data Science</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" style="background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-head-left">
+        <div class="sec-num">02 / Experience</div>
+        <h2>Two internships, two very different data problems.</h2>
+        <p>Real organizations, real systems, real mess to clean up.</p>
+      </div>
+      <div class="sec-head-right">2025<br>Karachi</div>
+    </div>
+
+    <div class="exp-list">
+      <div class="exp-card reveal">
+        <div class="exp-meta">
+          <span class="em-date">Jul – Sep 2025</span>
+          <div class="em-type">Internship</div>
+        </div>
+        <div class="exp-body">
+          <h3>Information Technology Intern</h3>
+          <div class="eb-org">Fauji Fertilizer Company (FFC), Karachi</div>
+          <ul>
+            <li>Identified a manual, error-prone Excel-based asset tracking process in the RM office with no real-time visibility.</li>
+            <li>Built a Streamlit dashboard (Pandas + Plotly) with login, search filters, and automated status reports — replacing the old process end-to-end.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span>
+            <span class="exp-tag">Pandas</span>
+            <span class="exp-tag">Plotly</span>
+            <span class="exp-tag">Streamlit</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-meta">
+          <span class="em-date">3 – 28 Aug 2025</span>
+          <div class="em-type">Internship</div>
+        </div>
+        <div class="exp-body">
+          <h3>Information Technology Intern</h3>
+          <div class="eb-org">Pakistan Petroleum Limited (PPL), Karachi</div>
+          <ul>
+            <li>Managed medical department patient data using Excel and SQL, ensuring accuracy and efficient record-keeping.</li>
+            <li>Handled database updates and reporting through a UI-based software system to support daily department operations.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Excel</span>
+            <span class="exp-tag">SQL</span>
+            <span class="exp-tag">Database</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-head-left">
+        <div class="sec-num">03 / Projects</div>
+        <h2>Selected work.</h2>
+        <p>Six projects spanning dashboards, databases, NLP, and computer vision.</p>
+      </div>
+      <div class="sec-head-right">2024 – 2026<br>6 projects</div>
+    </div>
+
+    <div class="proj-toolbar reveal">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="dashboard">Dashboards</button>
+      <button class="chip" data-filter="database">Databases</button>
+      <button class="chip" data-filter="ai">AI / ML</button>
+      <button class="chip" data-filter="hardware">Hardware</button>
+      <span class="proj-count" id="projCount">6 projects</span>
+    </div>
+
+    <div class="proj-grid" id="projGrid">
+
+      <div class="proj-card reveal" data-cat="dashboard"
+           data-title="FFC Asset Tracking Dashboard"
+           data-desc="Replaced a manual, error-prone Excel process with a live dashboard built for a real internal team. Login, search filters, and automated status reports — not a tutorial dataset."
+           data-tools="Python, Pandas, Plotly, Streamlit"
+           data-metric="Deployed internally at FFC"
+           data-role="Solo build · Internship project"
+           data-outcome="RM office moved from manual Excel tracking to a live, filterable dashboard with automated status reports.">
+        <div class="proj-top">
+          <div class="proj-title">FFC Asset Tracking Dashboard</div>
+          <div class="proj-cat">Dashboard</div>
+        </div>
+        <div class="proj-desc">Replaced a manual Excel process with a live dashboard — login, search filters, and automated status reports for a real internal team.</div>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">Pandas</span>
+            <span class="proj-tag">Streamlit</span>
+          </div>
+          <div class="proj-metric">Internal · FFC</div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" data-cat="ai"
+           data-title="Semantic Ambiguity Analyzer"
+           data-desc="An NLP tool that scans newspaper text and flags 8 distinct types of ambiguity — lexical, referential, scope, temporal — with severity scoring and support for .txt, .pdf, and .docx input."
+           data-tools="Python, spaCy, Streamlit, Matplotlib"
+           data-metric="8 ambiguity types detected"
+           data-role="Solo build · NLP project"
+           data-outcome="Flags ambiguous sentences across 8 categories with severity scoring, accepting .txt, .pdf, and .docx input."
+           data-link="https://github.com/76haider/Semantic-Ambiguity-Analyzer">
+        <div class="proj-top">
+          <div class="proj-title">Semantic Ambiguity Analyzer</div>
+          <div class="proj-cat">AI / ML</div>
+        </div>
+        <div class="proj-desc">NLP tool that scans newspaper text and flags 8 distinct types of ambiguity with severity scoring.</div>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="proj-tag">spaCy</span>
+            <span class="proj-tag">Streamlit</span>
+          </div>
+          <div class="proj-metric">8 types</div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" data-cat="database"
+           data-title="Library Management System"
+           data-desc="A desktop application with full user authentication, borrowing/return tracking, and an analytics dashboard on top of a MySQL backend."
+           data-tools="Python, Tkinter, MySQL"
+           data-metric="Full-stack desktop app"
+           data-role="Solo build · Database project"
+           data-outcome="Full desktop app with auth, borrow/return tracking, and an analytics dashboard over MySQL."
+           data-link="https://github.com/76haider/Library_Management_System">
+        <div class="proj-top">
+          <div class="proj-title">Library Management System</div>
+          <div class="proj-cat">Database</div>
+        </div>
+        <div class="proj-desc">Desktop app with authentication, borrow/return tracking, and an analytics dashboard on MySQL.</div>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="proj-tag">Tkinter</span>
+            <span class="proj-tag">MySQL</span>
+          </div>
+          <div class="proj-metric">Full-stack</div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" data-cat="hardware"
+           data-title="RFID Access Control System"
+           data-desc="A secure access system built on Arduino Uno — reads authorized tags, grants access, and logs authentication attempts. Achieved 95% reliability in authentication."
+           data-tools="Arduino, C++, Hardware"
+           data-metric="95% reliability"
+           data-role="Solo build · Hardware project"
+           data-outcome="Reads authorized tags, grants access, and logs every authentication attempt at 95% reliability.">
+        <div class="proj-top">
+          <div class="proj-title">RFID Access Control System</div>
+          <div class="proj-cat">Hardware</div>
+        </div>
+        <div class="proj-desc">Secure access system on Arduino Uno — reads authorized tags, grants access, logs attempts at 95% reliability.</div>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="proj-tag">Arduino</span>
+            <span class="proj-tag">C++</span>
+          </div>
+          <div class="proj-metric">95% reliable</div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" data-cat="ai"
+           data-title="Facial Recognition Attendance System"
+           data-desc="An attendance system that identifies faces in real time and logs them automatically — no manual sign-in sheet required."
+           data-tools="Python, OpenCV, Computer Vision"
+           data-metric="Real-time detection"
+           data-role="Solo build · Computer vision project"
+           data-outcome="Identifies faces in real time and logs attendance automatically, removing manual sign-in entirely."
+           data-link="https://github.com/76haider/Facial-Recognition-Attendance-Managment-System">
+        <div class="proj-top">
+          <div class="proj-title">Facial Recognition Attendance</div>
+          <div class="proj-cat">AI / ML</div>
+        </div>
+        <div class="proj-desc">Identifies faces in real time and logs attendance automatically — no manual sign-in sheet.</div>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="proj-tag">OpenCV</span>
+            <span class="proj-tag">Python</span>
+          </div>
+          <div class="proj-metric">Real-time</div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" data-cat="ai"
+           data-title="AI Report Writing Agent"
+           data-desc="An AI agent that takes a research topic, gathers information, and generates a structured report automatically for technical and business documentation."
+           data-tools="Python, AI Agent, LLM"
+           data-metric="Automated reports"
+           data-role="Solo build · AI project"
+           data-outcome="Takes a research topic and produces a structured technical or business report automatically.">
+        <div class="proj-top">
+          <div class="proj-title">AI Report Writing Agent</div>
+          <div class="proj-cat">AI / ML</div>
+        </div>
+        <div class="proj-desc">Takes a research topic, gathers information, and generates a structured report automatically.</div>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="proj-tag">AI Agent</span>
+            <span class="proj-tag">LLM</span>
+          </div>
+          <div class="proj-metric">Automated</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" style="background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-head-left">
+        <div class="sec-num">04 / Skills</div>
+        <h2>The toolkit behind the projects.</h2>
+        <p>What I reach for, and how confident I am with it.</p>
+      </div>
+      <div class="sec-head-right">Self-assessed<br>proficiency</div>
+    </div>
+
+    <div class="skills-layout">
+      <div class="skill-panel reveal">
+        <h3>// Proficiency</h3>
+        <div class="skill-bars">
+          <div class="sk-bar">
+            <div class="sk-top"><span class="sk-name">Python</span><span class="sk-val">90%</span></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="90"></div></div>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-top"><span class="sk-name">SQL</span><span class="sk-val">85%</span></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="85"></div></div>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-top"><span class="sk-name">Dashboards & Visualization</span><span class="sk-val">82%</span></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="82"></div></div>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-top"><span class="sk-name">Databases (MySQL, PostgreSQL)</span><span class="sk-val">78%</span></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="78"></div></div>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-top"><span class="sk-name">AI / ML / NLP</span><span class="sk-val">60%</span></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="60"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-panel reveal">
+        <h3>// Tools & Technologies</h3>
+        <div class="tool-grid">
+          <div class="tool"><i class="fa-brands fa-python"></i>Python</div>
+          <div class="tool"><i class="fa-solid fa-database"></i>SQL</div>
+          <div class="tool"><i class="fa-solid fa-table"></i>Pandas</div>
+          <div class="tool"><i class="fa-solid fa-square-root-variable"></i>NumPy</div>
+          <div class="tool"><i class="fa-solid fa-file-excel"></i>Excel</div>
+          <div class="tool"><i class="fa-solid fa-chart-line"></i>Plotly</div>
+          <div class="tool"><i class="fa-solid fa-chart-area"></i>Matplotlib</div>
+          <div class="tool"><i class="fa-solid fa-window-maximize"></i>Streamlit</div>
+          <div class="tool"><i class="fa-solid fa-server"></i>MySQL</div>
+          <div class="tool"><i class="fa-solid fa-layer-group"></i>PostgreSQL</div>
+          <div class="tool"><i class="fa-solid fa-book"></i>Jupyter</div>
+          <div class="tool"><i class="fa-brands fa-github"></i>Git</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTS + CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-head-left">
+        <div class="sec-num">05 / Credentials & Contact</div>
+        <h2>Certifications and how to reach me.</h2>
+      </div>
+    </div>
+
+    <div class="bottom-grid">
+      <div class="cert-panel reveal">
+        <h3>// Certifications</h3>
+        <div class="cert">
+          <div class="cert-ico"><i class="fa-solid fa-award"></i></div>
+          <div class="cert-body">
+            <div class="cb-name">Google Advanced Data Analytics</div>
+            <div class="cb-iss">Google · Coursera</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-ico"><i class="fa-brands fa-python"></i></div>
+          <div class="cert-body">
+            <div class="cb-name">Google Programming in Python</div>
+            <div class="cb-iss">Google · Coursera</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-ico"><i class="fa-solid fa-brain"></i></div>
+          <div class="cert-body">
+            <div class="cb-name">AI &amp; Data Science</div>
+            <div class="cb-iss">SMIT — Saylani Mass IT Training</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-panel reveal">
+        <h3>Let's talk data.</h3>
+        <p>Open to entry-level Data Analyst, Database Administrator, and junior Data Science roles. If you're hiring or just want to talk about a project, reach out.</p>
+        <div class="contact-links">
+          <a class="c-link" href="mailto:haiderkhaan0800@gmail.com">
+            <i class="fa-solid fa-envelope"></i> haiderkhaan0800@gmail.com
+            <i class="fa-solid fa-arrow-right c-arr"></i>
+          </a>
+          <a class="c-link" href="tel:+923190142430">
+            <i class="fa-solid fa-phone"></i> +92 319 0142430
+            <i class="fa-solid fa-arrow-right c-arr"></i>
+          </a>
+          <a class="c-link" href="https://www.linkedin.com/in/76haiderkhan" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+            <i class="fa-solid fa-arrow-right c-arr"></i>
+          </a>
+          <a class="c-link" href="https://github.com/76haider" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+            <i class="fa-solid fa-arrow-right c-arr"></i>
+          </a>
+        </div>
+        <a class="resume-btn" href="Haider_Resume.pdf" download>
+          <i class="fa-solid fa-file-arrow-down"></i> Download resume (PDF)
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="f-left"><span class="f-dot"></span> Muhammad Haider — Karachi, Pakistan</div>
+    <div>Built by hand · deployed on GitHub Pages</div>
+  </div>
+</footer>
+
+<div class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+/* ---------- scroll progress ---------- */
+const scrollBar = document.getElementById('scrollBar');
+window.addEventListener('scroll', ()=>{
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  scrollBar.style.width = (window.scrollY / h * 100) + '%';
+});
+
+/* ---------- hero bar chart ---------- */
+new Chart(document.getElementById('heroBars'), {
+  type: 'bar',
+  data: {
+    labels: ['Python', 'SQL', 'Dashboards', 'Databases', 'AI/ML'],
+    datasets: [{
+      data: [90, 85, 82, 78, 60],
+      backgroundColor: ['#C9A227','#C9A227','#C9A227','#C9A227','#3E7C74'],
+      borderRadius: 3,
+      barThickness: 11
+    }]
+  },
+  options: {
+    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+    animation: { duration: 1400, easing: 'easeOutQuart' },
+    plugins: { legend: { display: false }, tooltip: { enabled: false } },
+    scales: {
+      x: { max: 100, grid: { color: 'rgba(243,241,234,0.06)' }, ticks: { display: false }, border: { display: false } },
+      y: { grid: { display: false }, border: { display: false },
+           ticks: { color: 'rgba(243,241,234,0.7)', font: { family: "'IBM Plex Mono'", size: 10 } } }
+    }
+  }
+});
+
+/* ---------- hero donut ---------- */
+new Chart(document.getElementById('heroDonut'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Python', 'SQL', 'Other'],
+    datasets: [{
+      data: [50, 30, 20],
+      backgroundColor: ['#C9A227','#3E7C74','rgba(243,241,234,0.18)'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '70%',
+    animation: { duration: 1500, easing: 'easeOutQuart' },
+    plugins: { legend: { display: false }, tooltip: { enabled: false } }
+  }
+});
+
+/* ---------- reveal on scroll ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){ en.target.classList.add('in-view'); io.unobserve(en.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+/* ---------- count-up numbers ---------- */
+document.querySelectorAll('.count-up').forEach(el=>{
+  const target = parseInt(el.dataset.target, 10);
+  const cio = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        let cur = 0;
+        const step = Math.max(1, Math.round(target/40));
+        const tick = ()=>{
+          cur = Math.min(target, cur+step);
+          el.textContent = cur;
+          if(cur < target) requestAnimationFrame(tick);
+        };
+        tick(); cio.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  cio.observe(el);
+});
+
+/* ---------- fill bars on view ---------- */
+const fillObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      const el = en.target;
+      const pct = el.dataset.fill || '0';
+      el.style.width = pct + '%';
+      fillObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('[data-fill]').forEach(el=> fillObserver.observe(el));
+
+/* ---------- project filters ---------- */
+const chips = document.querySelectorAll('.chip');
+const cards = document.querySelectorAll('.proj-card');
+const projCount = document.getElementById('projCount');
+chips.forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    chips.forEach(c=> c.classList.remove('active'));
+    chip.classList.add('active');
+    const f = chip.dataset.filter;
+    let visible = 0;
+    cards.forEach(card=>{
+      const match = f === 'all' || card.dataset.cat === f;
+      card.style.display = match ? '' : 'none';
+      if(match) visible++;
+    });
+    projCount.textContent = visible + (visible === 1 ? ' project' : ' projects');
+  });
+});
+
+/* ---------- project card cursor spotlight ---------- */
+document.querySelectorAll('.proj-card').forEach(card=>{
+  card.addEventListener('mousemove', e=>{
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${((e.clientX - r.left)/r.width)*100}%`);
+    card.style.setProperty('--my', `${((e.clientY - r.top)/r.height)*100}%`);
+  });
+});
+
+/* ---------- back to top ---------- */
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', ()=> toTop.classList.toggle('show', window.scrollY > 600));
+toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ---------- active nav link on scroll ---------- */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', ()=>{
+  let current = '';
+  sections.forEach(sec=>{
+    const top = sec.offsetTop - 120;
+    if(window.scrollY >= top) current = sec.id;
+  });
+  navLinks.forEach(link=>{
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+
+</body>
+</html>
