@@ -38,7 +38,6 @@
     --body-text:#CBD5E1;
     --glow:rgba(0,242,254,0.28);
     --accent:var(--cyan);
-    --accent-dark:var(--cyan-dark);
     --accent-soft:var(--cyan-soft-l);
     --accent-2:var(--emerald);
     --accent-2-soft:var(--emerald-soft-l);
@@ -59,7 +58,6 @@
     --body-text:#3A4759;
     --glow:rgba(8,145,168,0.25);
     --accent:var(--cyan-dark);
-    --accent-dark:var(--cyan-dark);
     --accent-soft:var(--cyan-soft-d);
     --accent-2:var(--emerald-dark);
     --accent-2-soft:var(--emerald-soft-d);
@@ -230,68 +228,56 @@
   .sec-head .sec-meta{font-family:var(--mono); font-size:0.7rem; color:var(--muted-2);
     text-align:right; white-space:nowrap; line-height:1.5;}
 
-  /* ============ ABOUT (fixed alignment, redesigned) ============ */
+  /* ============ ABOUT ============ */
   .about-grid{
     display:grid;
-    grid-template-columns:1.5fr 1fr;
-    gap:36px;
-    align-items:stretch;
+    grid-template-columns:1.55fr 1fr;
+    gap:40px;
+    align-items:start;
   }
   @media (max-width:900px){ .about-grid{grid-template-columns:1fr; gap:28px;} }
 
-  .about-prose{
-    display:flex; flex-direction:column; justify-content:center;
-    padding:8px 0;
-  }
   .about-prose p{font-size:1rem; color:var(--body-text); max-width:62ch; line-height:1.8;}
   .about-prose p + p{margin-top:18px;}
   .about-prose strong{color:var(--accent); font-weight:600;}
   .about-prose .em{color:var(--accent-2); font-weight:600;}
 
-  .about-side{display:flex; flex-direction:column; gap:14px; height:100%;}
+  .about-side{display:flex; flex-direction:column; gap:14px;}
 
-  /* Photo card: banner style, image fills the top */
+  /* Compact photo card with small circle */
   .photo-card{
     background:var(--card); border:1px solid var(--border);
-    border-radius:12px; overflow:hidden;
-    backdrop-filter:blur(12px); position:relative;
-    display:flex; flex-direction:column; flex:1 1 auto;
+    border-radius:12px; padding:20px;
+    backdrop-filter:blur(12px); position:relative; overflow:hidden;
+    display:flex; align-items:center; gap:16px;
     transition:border-color .25s, background .35s ease;
-    min-height:0;
   }
   .photo-card:hover{border-color:color-mix(in srgb, var(--accent) 40%, transparent);}
-  .photo-banner{
-    position:relative; width:100%; aspect-ratio:16/10;
-    background:linear-gradient(135deg, var(--card-solid), color-mix(in srgb, var(--accent) 20%, var(--card-solid)));
-    overflow:hidden; flex-shrink:0;
-  }
-  .photo-banner img{width:100%; height:100%; object-fit:cover; object-position:center top;}
-  .photo-banner::after{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(180deg, transparent 55%, color-mix(in srgb, var(--card-solid) 90%, transparent) 100%);
-    pointer-events:none;
-  }
-  .photo-body{
-    padding:16px 20px 18px;
-    display:flex; flex-direction:column; align-items:center;
-    text-align:center; gap:8px;
-    margin-top:-32px; position:relative; z-index:1;
-    flex:1 1 auto; justify-content:center;
-  }
-  .photo-info{position:relative; z-index:1;}
-  .photo-info .pi-name{font-weight:800; color:var(--ink-strong); font-size:1.1rem; letter-spacing:-0.01em;}
+  .photo-card::before{content:''; position:absolute; top:-70px; right:-70px;
+    width:170px; height:170px; border-radius:50%;
+    background:radial-gradient(circle, var(--accent-2-soft), transparent 70%);}
+  .photo-wrap{position:relative; width:88px; height:88px; flex-shrink:0;}
+  .photo-ring{position:absolute; inset:-3px; border-radius:50%;
+    background:conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent));
+    animation:spin 8s linear infinite; opacity:0.9;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .photo-inner{position:absolute; inset:0; border-radius:50%; overflow:hidden;
+    border:3px solid var(--card-solid); background:var(--card-solid);}
+  .photo-inner img{width:100%; height:100%; object-fit:cover;}
+  .photo-info{position:relative; z-index:1; min-width:0;}
+  .photo-info .pi-name{font-weight:800; color:var(--ink-strong); font-size:1.02rem;
+    letter-spacing:-0.01em; line-height:1.2;}
   .photo-info .pi-role{font-family:var(--mono); font-size:0.66rem; color:var(--accent);
     margin-top:4px; text-transform:uppercase; letter-spacing:0.1em;}
-  .photo-info .pi-status{display:inline-flex; align-items:center; gap:6px; margin-top:10px;
-    font-family:var(--mono); font-size:0.63rem; color:var(--accent-2);
-    padding:4px 11px; border-radius:100px; background:var(--accent-2-soft);
+  .photo-info .pi-status{display:inline-flex; align-items:center; gap:6px; margin-top:9px;
+    font-family:var(--mono); font-size:0.62rem; color:var(--accent-2);
+    padding:3px 9px; border-radius:100px; background:var(--accent-2-soft);
     border:1px solid color-mix(in srgb, var(--accent-2) 30%, transparent);}
   .photo-info .pi-status .d{width:5px; height:5px; border-radius:50%; background:var(--accent-2);
     animation:pulse 2s infinite;}
 
   .quick-facts{background:var(--card); border:1px solid var(--border); border-radius:12px;
     padding:18px 20px; backdrop-filter:blur(12px);
-    flex:0 0 auto;
     transition:background .35s ease, border-color .35s ease;}
   .quick-facts .qf-title{font-family:var(--mono); font-size:0.62rem; color:var(--muted);
     letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px;}
@@ -455,7 +441,13 @@
   .contact-panel > *{position:relative; z-index:1;}
   .contact-panel h3{font-size:1.35rem; font-weight:700; margin-bottom:10px; color:var(--ink-strong);}
   .contact-panel h3 span{color:var(--accent);}
-  .contact-panel p{color:var(--muted); font-size:0.9rem; margin-bottom:20px; max-width:42ch;}
+  .contact-panel p{color:var(--muted); font-size:0.9rem; margin-bottom:18px; max-width:46ch;}
+
+  .role-chips{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:20px;}
+  .role-chip{font-family:var(--mono); font-size:0.7rem; padding:5px 11px; border-radius:100px;
+    background:var(--accent-soft); color:var(--accent);
+    border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);}
+
   .contact-links{display:flex; flex-direction:column; gap:2px;}
   .c-link{display:flex; align-items:center; gap:12px; padding:11px 12px;
     border-radius:7px; font-size:0.88rem; color:var(--text);
@@ -503,7 +495,7 @@
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    .eyebrow .dot, .term-live .d, .photo-info .pi-status .d,
+    .photo-ring, .eyebrow .dot, .term-live .d, .photo-info .pi-status .d,
     .foot-inner .f-dot{animation:none;}
     .reveal{opacity:1; transform:none; transition:none;}
     .sk-fill{transition:none;}
@@ -622,22 +614,23 @@
 
     <div class="about-grid">
       <div class="about-prose reveal">
-        <p>I am in my final semester of a BS in Computer Science at <strong>Sindh Madressatul Islam University, Karachi</strong>. Most of what I know about data, I learned by solving real problems. The RM office at FFC was tracking assets on Excel with no real time visibility, so I rebuilt it as a Python dashboard with Pandas, Plotly, and Streamlit.</p>
-        <p>What pulls me in is the <strong>maths and logic side</strong> of this field, not just the tools. Give me a problem that has a right answer hiding somewhere in the mess, and that is where I do my best work.</p>
-        <p>I am looking for an entry level role where I can work with <span class="em">data, databases, and real systems</span>, and keep growing from there. Data Science is the direction I am aiming toward, but it is a goal, not a claim I am making today.</p>
+        <p>I am in my final semester of a BS in Computer Science at <strong>Sindh Madressatul Islam University, Karachi</strong>. Most of what I know about data, I learned by solving real problems. The RM office at FFC was tracking assets on Excel with no real time visibility, so I rebuilt it as a Python dashboard with Pandas, Plotly, and Streamlit. That project taught me more than any course could, because the people using it every day had real opinions about what worked and what did not.</p>
+        <p>What pulls me in is the <strong>maths and logic side</strong> of this field, not just the tools. Give me a problem that has a right answer hiding somewhere in the mess, and that is where I do my best work. Lately that has meant pushing past dashboards into NLP and computer vision, building an ambiguity detector for newspaper text and a facial recognition attendance system from scratch.</p>
+        <p>Outside of code, I care about doing things properly, not just quickly. I would rather build one dashboard a team actually depends on than ten that look nice in a demo. If you are looking for someone who will show up, ask the boring questions, and keep learning until the problem is really solved, that is the kind of work I want to be doing.</p>
       </div>
 
       <div class="about-side reveal">
         <div class="photo-card">
-          <div class="photo-banner">
-            <img src="haider-photo.jpg" alt="Muhammad Haider">
-          </div>
-          <div class="photo-body">
-            <div class="photo-info">
-              <div class="pi-name">Muhammad Haider</div>
-              <div class="pi-role">Data Analyst</div>
-              <div class="pi-status"><span class="d"></span> Available for hire</div>
+          <div class="photo-wrap">
+            <div class="photo-ring"></div>
+            <div class="photo-inner">
+              <img src="haider-photo.jpg" alt="Muhammad Haider">
             </div>
+          </div>
+          <div class="photo-info">
+            <div class="pi-name">Muhammad Haider</div>
+            <div class="pi-role">Data Analyst</div>
+            <div class="pi-status"><span class="d"></span> Available for hire</div>
           </div>
         </div>
 
@@ -940,7 +933,13 @@
 
       <div class="contact-panel reveal">
         <h3>Let us talk <span>data.</span></h3>
-        <p>Open to entry level roles where I can work with data and databases. If you are hiring or just want to talk about a project, reach out.</p>
+        <p>Open to entry level roles. If you are hiring or just want to talk about a project, reach out.</p>
+        <div class="role-chips">
+          <span class="role-chip">Data Analyst</span>
+          <span class="role-chip">Database Administrator</span>
+          <span class="role-chip">SAP ERP Administrator</span>
+          <span class="role-chip">Junior Data Scientist</span>
+        </div>
         <div class="contact-links">
           <a class="c-link" href="mailto:haiderkhaan0800@gmail.com">
             <i class="fa-solid fa-envelope"></i> haiderkhaan0800@gmail.com
@@ -984,7 +983,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-/* ---------- theme toggle ---------- */
 const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('mh-theme') || 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -997,14 +995,12 @@ themeToggle.addEventListener('click', ()=>{
   updateChartTheme();
 });
 
-/* ---------- scroll progress ---------- */
 const scrollBar = document.getElementById('scrollBar');
 window.addEventListener('scroll', ()=>{
   const h = document.documentElement.scrollHeight - window.innerHeight;
   scrollBar.style.width = (window.scrollY / h * 100) + '%';
 });
 
-/* ---------- hero chart ---------- */
 const heroCtx = document.getElementById('heroChart').getContext('2d');
 const stacks = {
   all:      { labels: ['Python', 'SQL', 'Streamlit', 'Pandas', 'MySQL'], data: [92, 88, 85, 90, 82] },
@@ -1069,7 +1065,6 @@ document.querySelectorAll('.c-btn').forEach(btn=>{
   });
 });
 
-/* ---------- reveal ---------- */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(en=>{
     if(en.isIntersecting){ en.target.classList.add('in-view'); io.unobserve(en.target); }
@@ -1077,7 +1072,6 @@ const io = new IntersectionObserver((entries)=>{
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
 
-/* ---------- count up ---------- */
 document.querySelectorAll('.count-up').forEach(el=>{
   const target = parseInt(el.dataset.target, 10);
   const cio = new IntersectionObserver((entries)=>{
@@ -1097,7 +1091,6 @@ document.querySelectorAll('.count-up').forEach(el=>{
   cio.observe(el);
 });
 
-/* ---------- skill fill ---------- */
 const fillObs = new IntersectionObserver((entries)=>{
   entries.forEach(en=>{
     if(en.isIntersecting){
@@ -1109,7 +1102,6 @@ const fillObs = new IntersectionObserver((entries)=>{
 }, { threshold: 0.4 });
 document.querySelectorAll('[data-fill]').forEach(el=> fillObs.observe(el));
 
-/* ---------- project filters ---------- */
 const chips = document.querySelectorAll('.chip');
 const cards = document.querySelectorAll('.proj-card');
 const projCount = document.getElementById('projCount');
@@ -1128,7 +1120,6 @@ chips.forEach(chip=>{
   });
 });
 
-/* ---------- card spotlight ---------- */
 document.querySelectorAll('.proj-card').forEach(card=>{
   card.addEventListener('mousemove', e=>{
     const r = card.getBoundingClientRect();
@@ -1137,12 +1128,10 @@ document.querySelectorAll('.proj-card').forEach(card=>{
   });
 });
 
-/* ---------- back to top ---------- */
 const toTop = document.getElementById('toTop');
 window.addEventListener('scroll', ()=> toTop.classList.toggle('show', window.scrollY > 600));
 toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-/* ---------- active nav ---------- */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', ()=>{
