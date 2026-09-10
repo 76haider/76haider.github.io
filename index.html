@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Haider — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F1EA;
+    --paper-raised:#ECE9E0;
+    --navy:#10233F;
+    --navy-deep:#0A1730;
+    --gold:#C9A227;
+    --gold-soft:#E4CD7C;
+    --teal:#3E7C74;
+    --ink:#20242B;
+    --ink-soft:#5B6470;
+    --line:rgba(16,35,63,0.14);
+    --serif:'Fraunces', serif;
+    --sans:'IBM Plex Sans', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,241,234,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1120px; margin:0 auto; padding:18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-name{font-family:var(--serif); font-weight:600; font-size:1.15rem; color:var(--navy);}
+  .nav-links{display:flex; gap:28px; font-size:0.92rem; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--navy);}
+  @media (max-width:640px){ .nav-links{gap:16px; font-size:0.82rem;} }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 72px;}
+  .hero-grid{display:grid; grid-template-columns:1.2fr 0.9fr; gap:56px; align-items:center;}
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+  .eyebrow-line{
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+    color:var(--ink-soft); font-size:0.95rem;
+  }
+  .eyebrow-line .dot{width:7px; height:7px; border-radius:50%; background:var(--teal);}
+  .hero h1{
+    font-family:var(--serif); font-weight:600;
+    font-size:clamp(2.2rem, 4.2vw, 3.4rem);
+    color:var(--navy); line-height:1.08; letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero p.lede{
+    margin-top:20px; font-size:1.1rem; color:var(--ink-soft); max-width:38ch;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:2px; font-size:0.95rem; font-weight:500;
+    border:1px solid var(--navy); transition:background 0.15s, color 0.15s;
+  }
+  .btn-solid{background:var(--navy); color:var(--paper);}
+  .btn-solid:hover{background:var(--navy-deep);}
+  .btn-outline{color:var(--navy);}
+  .btn-outline:hover{background:var(--navy); color:var(--paper);}
+
+  /* hero dashboard panel */
+  .panel{
+    background:var(--navy); border-radius:4px; padding:26px 26px 20px;
+    box-shadow:0 18px 40px -18px rgba(16,35,63,0.5);
+  }
+  .panel-title{
+    color:var(--gold-soft); font-size:0.78rem; letter-spacing:0.02em;
+    font-family:var(--mono); margin-bottom:4px;
+  }
+  .panel-sub{color:rgba(243,241,234,0.55); font-size:0.82rem; margin-bottom:18px;}
+  .panel canvas{width:100% !important; height:180px !important;}
+  .panel-stats{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    margin-top:18px; border-top:1px solid rgba(243,241,234,0.14); padding-top:16px;
+  }
+  .pstat{text-align:left;}
+  .pstat .num{font-family:var(--mono); color:var(--gold-soft); font-size:1.3rem; font-weight:600;}
+  .pstat .lbl{color:rgba(243,241,234,0.6); font-size:0.74rem; margin-top:2px;}
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:64px 0;}
+  .section-head{margin-bottom:40px; max-width:52ch;}
+  .section-head h2{
+    font-family:var(--serif); font-weight:600; color:var(--navy);
+    font-size:clamp(1.6rem, 2.6vw, 2.1rem);
+  }
+  .section-head p{color:var(--ink-soft); margin-top:10px; font-size:1.02rem;}
+  .rule{border-top:1px solid var(--line);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:56px;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:var(--ink); max-width:56ch; font-size:1.03rem;}
+  .about-grid p + p{margin-top:16px;}
+  .stat-strip{border-left:2px solid var(--gold); padding-left:24px; display:flex; flex-direction:column; gap:22px;}
+  .stat-strip .stat .num{font-family:var(--mono); color:var(--navy); font-size:1.7rem; font-weight:600;}
+  .stat-strip .stat .lbl{color:var(--ink-soft); font-size:0.88rem; margin-top:2px;}
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline{position:relative; padding-left:32px; border-left:2px solid var(--line);}
+  .tl-item{position:relative; padding-bottom:36px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:''; position:absolute; left:-38px; top:4px;
+    width:12px; height:12px; border-radius:50%; background:var(--paper);
+    border:2px solid var(--gold);
+  }
+  .tl-date{font-family:var(--mono); font-size:0.8rem; color:var(--teal); margin-bottom:4px;}
+  .tl-role{font-family:var(--serif); font-weight:600; font-size:1.15rem; color:var(--navy);}
+  .tl-org{color:var(--ink-soft); font-size:0.92rem; margin-bottom:8px;}
+  .tl-item ul{margin-left:18px; color:var(--ink); font-size:0.97rem;}
+  .tl-item li{margin-bottom:4px;}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-list{display:flex; flex-direction:column; gap:0;}
+  .proj{
+    display:grid; grid-template-columns:1fr auto; gap:24px;
+    padding:28px 0; border-top:1px solid var(--line); align-items:start;
+  }
+  .proj:last-child{border-bottom:1px solid var(--line);}
+  .proj-title{font-family:var(--serif); font-weight:600; font-size:1.25rem; color:var(--navy);}
+  .proj-desc{color:var(--ink); margin-top:8px; font-size:0.97rem; max-width:58ch;}
+  .proj-tools{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{
+    font-size:0.76rem; font-family:var(--mono); color:var(--navy);
+    background:var(--paper-raised); padding:4px 10px; border-radius:2px;
+    border:1px solid var(--line);
+  }
+  .proj-metric{
+    text-align:right; min-width:120px;
+  }
+  .proj-metric .num{font-family:var(--mono); color:var(--gold); font-size:1.6rem; font-weight:600;}
+  .proj-metric .lbl{color:var(--ink-soft); font-size:0.76rem; margin-top:2px; max-width:14ch; margin-left:auto;}
+  .proj-links{margin-top:14px; display:flex; gap:14px; justify-content:flex-end;}
+  .proj-links a{font-size:0.85rem; color:var(--teal); border-bottom:1px solid transparent;}
+  .proj-links a:hover{border-bottom-color:var(--teal);}
+  @media (max-width:640px){
+    .proj{grid-template-columns:1fr;}
+    .proj-metric{text-align:left; margin-top:12px;}
+    .proj-metric .lbl{margin-left:0;}
+    .proj-links{justify-content:flex-start;}
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid; grid-template-columns:repeat(2,1fr); gap:32px;}
+  @media (max-width:640px){ .skill-groups{grid-template-columns:1fr;} }
+  .skill-group h3{
+    font-family:var(--sans); font-weight:600; font-size:0.85rem;
+    color:var(--ink-soft); margin-bottom:12px;
+  }
+  .skill-badges{display:flex; gap:8px; flex-wrap:wrap;}
+  .badge{
+    font-size:0.88rem; padding:7px 14px; border-radius:2px;
+    background:var(--paper); border:1px solid var(--navy);
+    color:var(--navy);
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{background:var(--navy); color:var(--paper); padding:64px 0 32px;}
+  .footer-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:40px;}
+  @media (max-width:640px){ .footer-grid{grid-template-columns:1fr;} }
+  footer h2{font-family:var(--serif); font-size:2rem; font-weight:600; max-width:16ch;}
+  footer p{color:rgba(243,241,234,0.68); margin-top:14px; max-width:42ch;}
+  .footer-links{display:flex; flex-direction:column; gap:10px; font-size:0.96rem;}
+  .footer-links a{color:rgba(243,241,234,0.85);}
+  .footer-links a:hover{color:var(--gold-soft);}
+  .footer-bottom{
+    margin-top:56px; padding-top:20px; border-top:1px solid rgba(243,241,234,0.14);
+    display:flex; justify-content:space-between; color:rgba(243,241,234,0.45); font-size:0.8rem;
+    flex-wrap:wrap; gap:8px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">Muhammad Haider</div>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-line"><span class="dot"></span> Final-year CS student, SMIU Karachi</div>
+      <h1>Data Analyst, building toward Data Science.</h1>
+      <p class="lede">I turn messy spreadsheets and raw logs into dashboards people actually use — and I'm spending my final semester pushing that into AI/ML and NLP territory.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="#work">See my work</a>
+        <a class="btn btn-outline" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">SKILL_BREAKDOWN.PY</div>
+      <div class="panel-sub">Where the hours actually go</div>
+      <canvas id="skillChart"></canvas>
+      <div class="panel-stats">
+        <div class="pstat"><div class="num">2</div><div class="lbl">Internships</div></div>
+        <div class="pstat"><div class="num">7+</div><div class="lbl">Shipped projects</div></div>
+        <div class="pstat"><div class="num">3</div><div class="lbl">Certifications</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap rule"></div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:20px;">
+        <h2>About</h2>
+      </div>
+      <p>I'm in my final semester of a BS in Computer Science at Sindh Madressatul Islam University, Karachi. Most of what I know about data, I learned by breaking things — an FFC office was still tracking assets on Excel with no real-time visibility, so I rebuilt it as a Python dashboard with Pandas, Plotly, and Streamlit. That habit of "this could just be a script" is basically my whole personality now.</p>
+      <p>I like problems with a clear right answer hiding in messy data — which is why the math and logic side of this field is what pulls me in, not just the tools. Lately that's meant pushing past dashboards into NLP and computer vision: an ambiguity detector for newspaper text, a facial-recognition attendance system, digit recognition from scratch.</p>
+      <p>I'm graduating into an entry-level search — Data Analyst roles first, with SAP ERP / Database Administrator work as a strong parallel track given how much of my project work is database-backed. Data Science is the direction, not the day-one claim.</p>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">2025–26</div><div class="lbl">FFC &amp; PPL internships</div></div>
+      <div class="stat"><div class="num">Python · SQL</div><div class="lbl">Core toolset</div></div>
+      <div class="stat"><div class="num">95%</div><div class="lbl">RFID auth reliability</div></div>
+      <div class="stat"><div class="num">SMIU</div><div class="lbl">BSCS, final semester</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap rule"></div>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <p>Two internships, two very different data problems.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Aug 2026</div>
+        <div class="tl-role">Information Technology Intern</div>
+        <div class="tl-org">Pakistan Petroleum Limited (PPL), Karachi</div>
+        <ul>
+          <li>Managed departmental data using Excel and SQL, focused on accuracy and record-keeping.</li>
+          <li>Handled database updates and reporting through a UI-based software system.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jul – Sep 2025</div>
+        <div class="tl-role">Information Technology Intern</div>
+        <div class="tl-org">Fauji Fertilizer Company (FFC), Karachi</div>
+        <ul>
+          <li>Identified a manual, error-prone Excel-based asset tracking process with no real-time visibility.</li>
+          <li>Built a Streamlit dashboard (Pandas + Plotly) with login, search filters, and automated status reports.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap rule"></div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <p>Five projects that show the range — dashboards, databases, and a step into AI/ML.</p>
+    </div>
+    <div class="proj-list">
+
+      <div class="proj">
+        <div>
+          <div class="proj-title">FFC Asset Tracking Dashboard</div>
+          <div class="proj-desc">Replaced a manual, error-prone Excel process with a live dashboard — login, search filters, and automated status reports built for a real internal team, not a tutorial dataset.</div>
+          <div class="proj-tools"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Plotly</span><span class="tag">Streamlit</span></div>
+        </div>
+        <div class="proj-metric">
+          <div class="num">Live</div>
+          <div class="lbl">Replaced manual Excel workflow at FFC</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <div class="proj-title">Semantic Ambiguity Analyzer</div>
+          <div class="proj-desc">An NLP tool that scans newspaper text and flags 8 distinct types of ambiguity — lexical, referential, scope, temporal — with severity scoring and support for .txt, .pdf, and .docx input.</div>
+          <div class="proj-tools"><span class="tag">Python</span><span class="tag">spaCy</span><span class="tag">Streamlit</span><span class="tag">Matplotlib</span></div>
+        </div>
+        <div class="proj-metric">
+          <div class="num">8</div>
+          <div class="lbl">Ambiguity types detected</div>
+        </div>
+        <div class="proj-links" style="grid-column:1 / -1;"><a href="https://github.com/76haider/Semantic-Ambiguity-Analyzer" target="_blank" rel="noopener">View on GitHub</a></div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <div class="proj-title">Library Management System</div>
+          <div class="proj-desc">A desktop application with full user authentication, borrowing/return tracking, and an analytics dashboard on top of a MySQL backend.</div>
+          <div class="proj-tools"><span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">MySQL</span></div>
+        </div>
+        <div class="proj-metric">
+          <div class="num">Full-stack</div>
+          <div class="lbl">Desktop app + database</div>
+        </div>
+        <div class="proj-links" style="grid-column:1 / -1;"><a href="https://github.com/76haider/Library_Management_System" target="_blank" rel="noopener">View on GitHub</a></div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <div class="proj-title">RFID Access Control System</div>
+          <div class="proj-desc">A secure access system built on Arduino Uno — reads authorized tags, grants access, and logs authentication attempts.</div>
+          <div class="proj-tools"><span class="tag">Arduino</span><span class="tag">C++</span><span class="tag">Hardware</span></div>
+        </div>
+        <div class="proj-metric">
+          <div class="num">95%</div>
+          <div class="lbl">Authentication reliability</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <div class="proj-title">Facial Recognition Attendance System</div>
+          <div class="proj-desc">An attendance system that identifies faces in real time and logs them automatically — no manual sign-in sheet required.</div>
+          <div class="proj-tools"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Computer Vision</span></div>
+        </div>
+        <div class="proj-metric">
+          <div class="num">Real-time</div>
+          <div class="lbl">Face detection &amp; logging</div>
+        </div>
+        <div class="proj-links" style="grid-column:1 / -1;"><a href="https://github.com/76haider/Facial-Recognition-Attendance-Managment-System" target="_blank" rel="noopener">View on GitHub</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="wrap rule"></div>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <p>The toolkit behind the projects above.</p>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Languages &amp; Libraries</h3>
+        <div class="skill-badges">
+          <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">spaCy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data &amp; Visualization</h3>
+        <div class="skill-badges">
+          <span class="badge">Data Cleaning</span><span class="badge">Data Extraction</span><span class="badge">Plotly</span><span class="badge">Streamlit</span><span class="badge">Matplotlib</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Databases &amp; Tools</h3>
+        <div class="skill-badges">
+          <span class="badge">MySQL</span><span class="badge">MySQL Workbench</span><span class="badge">PostgreSQL</span><span class="badge">Excel</span><span class="badge">Jupyter</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Ways of Working</h3>
+        <div class="skill-badges">
+          <span class="badge">Logical Thinking</span><span class="badge">Time Management</span><span class="badge">Adaptability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Let's talk data.</h2>
+        <p>Open to entry-level Data Analyst, Data Scientist, and Database/SAP ERP Administrator roles. If you're hiring or just want to talk about a project, reach out.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:haiderkhaan0800@gmail.com">haiderkhaan0800@gmail.com</a>
+        <a href="https://www.linkedin.com/in/76haiderkhan" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/76haider" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="#" id="resumeLink">Download resume (PDF)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Muhammad Haider — Karachi, Pakistan</span>
+      <span>Built by hand, deployed on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  const ctx = document.getElementById('skillChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Data Analysis', 'Python/SQL', 'Dashboards', 'AI/ML', 'Databases'],
+      datasets: [{
+        data: [90, 88, 82, 68, 78],
+        backgroundColor: '#C9A227',
+        borderRadius: 2,
+        barThickness: 14
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { max: 100, grid: { color: 'rgba(243,241,234,0.08)' }, ticks: { display:false } },
+        y: { grid: { display:false }, ticks: { color: 'rgba(243,241,234,0.75)', font: { family: "'IBM Plex Sans'", size: 12 } } }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
