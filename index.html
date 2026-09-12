@@ -26,13 +26,10 @@
     --mysql:#00758F;
     --pg:#336791;
     --git:#F05032;
-    --pandas:#150458;
     --numpy:#4D77CF;
     --streamlit:#FF4B4B;
-    --plotly:#3F4F75;
     --excel:#217346;
     --jupyter:#F37626;
-    --opencv:#5C3EE8;
     --sql:#E38C00;
     --dash:#00B4D8;
     --ai:#9D4EDD;
@@ -197,27 +194,19 @@
   .sec-head .sec-meta{font-family:var(--mono); font-size:0.7rem; color:var(--muted-2); text-align:right; white-space:nowrap; line-height:1.5;}
 
   /* ABOUT */
-  .about-grid{display:grid; grid-template-columns:360px 1fr; gap:44px; align-items:start;}
+  .about-grid{display:grid; grid-template-columns:300px 1fr; gap:40px; align-items:start;}
   @media (max-width:900px){ .about-grid{grid-template-columns:1fr; gap:28px;} }
-  .profile-card{background:var(--card); border:1px solid var(--border); border-radius:16px;
-    padding:18px 18px 22px; backdrop-filter:blur(12px); position:relative; overflow:hidden;
+  .profile-card{background:var(--card); border:1px solid var(--border); border-radius:12px;
+    padding:20px; text-align:center; backdrop-filter:blur(12px);
     transition:border-color .25s, background .35s ease;}
   .profile-card:hover{border-color:color-mix(in srgb, var(--accent) 40%, transparent);}
-  .profile-card::before{content:''; position:absolute; top:-100px; right:-100px; width:220px; height:220px; border-radius:50%;
-    background:radial-gradient(circle, var(--accent-soft), transparent 70%); pointer-events:none;}
-  .profile-photo{position:relative; width:100%; aspect-ratio:1/1; border-radius:12px; overflow:hidden;
-    background:var(--card-solid); border:1px solid var(--border-2);}
-  .profile-photo img{width:100%; height:100%; object-fit:cover;}
-  .profile-meta{text-align:center; margin-top:18px; position:relative; z-index:1;}
-  .profile-meta .pm-name{font-weight:800; font-size:1.3rem; color:var(--ink-strong); letter-spacing:-0.015em; line-height:1.15;}
-  .profile-meta .pm-role{font-family:var(--mono); font-size:0.7rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.12em; margin-top:6px;}
-  .profile-divider{height:1px; background:var(--border-2); margin:18px 4px 16px; position:relative; z-index:1;}
-  .profile-facts{display:flex; flex-direction:column; gap:12px; position:relative; z-index:1;}
-  .pf-row{display:flex; align-items:center; gap:12px; font-size:0.9rem; color:var(--body-text);}
-  .pf-row i{width:22px; height:22px; border-radius:6px; display:flex; align-items:center; justify-content:center;
-    background:var(--accent-soft); color:var(--accent); font-size:0.72rem; flex-shrink:0;}
-  .pf-row.hire i{background:var(--accent-2-soft); color:var(--accent-2);}
-  .pf-row span{font-weight:500;}
+  .profile-photo{width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:16px;}
+  .profile-name{font-size:1.15rem; font-weight:700; color:var(--ink-strong); margin-bottom:2px;}
+  .profile-role{font-size:0.82rem; font-family:var(--mono); color:var(--accent); margin-bottom:16px; letter-spacing:0.06em; text-transform:uppercase;}
+  .profile-facts{text-align:left; border-top:1px solid var(--border); padding-top:14px;
+    font-size:0.85rem; color:var(--muted); display:flex; flex-direction:column; gap:10px;}
+  .profile-facts > div{display:flex; align-items:center; gap:10px;}
+  .profile-facts i{width:18px; color:var(--accent-2); font-size:0.78rem; text-align:center;}
   .about-prose p{font-size:1rem; color:var(--body-text); max-width:62ch; line-height:1.8;}
   .about-prose p + p{margin-top:18px;}
   .about-prose strong{color:var(--accent); font-weight:600;}
@@ -341,7 +330,7 @@
   html[data-theme="bright"] .t-mysql i{color:#005A6E;}
   html[data-theme="bright"] .t-pg i{color:#245070;}
 
-  /* CERTS + ACTIVITIES + CONTACT */
+  /* CERTS + ACTIVITIES */
   .cred-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
   @media (max-width:900px){ .cred-grid{grid-template-columns:1fr;} }
   .cred-panel{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px 26px; backdrop-filter:blur(12px); transition:background .35s ease, border-color .35s ease;}
@@ -349,34 +338,25 @@
   .cert{display:flex; align-items:center; gap:14px; padding:13px 0; border-bottom:1px solid var(--border-2); transition:padding-left .22s;}
   .cert:last-child{border-bottom:none; padding-bottom:0;}
   .cert:hover{padding-left:6px;}
-  .cert-ico{width:38px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.95rem; color:#fff;}
-  .cert-ico.g{background:linear-gradient(135deg, #4285F4, #34A853);}
-  .cert-ico.gp{background:linear-gradient(135deg, #3776AB, #FFD43B);}
-  .cert-ico.smit{background:linear-gradient(135deg, #9D4EDD, #00F5A0);}
+  .cert-ico{width:38px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.95rem;
+    background:var(--accent-soft); color:var(--accent);}
   .cert-body .cb-name{font-size:0.92rem; color:var(--ink-strong); font-weight:600; line-height:1.3;}
   .cert-body .cb-iss{font-family:var(--mono); font-size:0.66rem; color:var(--muted); margin-top:3px;}
   .act{display:flex; gap:14px; padding:13px 0; border-bottom:1px solid var(--border-2); transition:padding-left .22s;}
   .act:last-child{border-bottom:none; padding-bottom:0;}
   .act:hover{padding-left:6px;}
-  .act-ico{width:38px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.9rem; background:var(--accent-soft); color:var(--accent);}
-  .act-ico.conf{background:rgba(0,180,216,0.14); color:var(--dash);}
-  .act-ico.res{background:rgba(157,78,221,0.14); color:var(--ai);}
-  .act-ico.cap{background:rgba(243,118,38,0.14); color:var(--jupyter);}
-  html[data-theme="bright"] .act-ico.conf{color:#0089A8;}
-  html[data-theme="bright"] .act-ico.res{color:#7B2FBF;}
-  html[data-theme="bright"] .act-ico.cap{color:#C25A0E;}
+  .act-ico{width:38px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.9rem;
+    background:var(--accent-soft); color:var(--accent);}
   .act-body .ab-name{font-size:0.92rem; color:var(--ink-strong); font-weight:600; line-height:1.3;}
   .act-body .ab-note{font-size:0.83rem; color:var(--muted); margin-top:4px; line-height:1.5;}
 
+  /* CONTACT */
   .contact-panel{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:32px 34px; position:relative; overflow:hidden; backdrop-filter:blur(12px); transition:background .35s ease, border-color .35s ease; margin-top:20px;}
   .contact-panel::before{content:''; position:absolute; top:-90px; right:-90px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, var(--accent-soft), transparent 70%);}
   .contact-panel > *{position:relative; z-index:1;}
   .contact-panel h3{font-size:1.5rem; font-weight:700; margin-bottom:12px; color:var(--ink-strong);}
   .contact-panel h3 span{color:var(--accent);}
   .contact-intro{color:var(--muted); font-size:0.95rem; margin-bottom:24px; max-width:60ch; line-height:1.6;}
-  .contact-roles{display:flex; flex-direction:column; gap:6px; margin-bottom:24px; padding-left:2px;}
-  .contact-roles .cr-item{font-family:var(--mono); font-size:0.82rem; color:var(--accent); display:flex; align-items:center; gap:10px;}
-  .contact-roles .cr-item::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0;}
   .contact-links{display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:20px;}
   @media (max-width:640px){ .contact-links{grid-template-columns:1fr;} }
   .c-link{display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:8px; font-size:0.88rem; color:var(--text); border:1px solid var(--border-2); transition:border-color .2s, background .2s, color .2s;}
@@ -414,7 +394,6 @@
   }
 </style>
 </head>
-
 <body>
 
 <div id="scrollBar"></div>
@@ -456,7 +435,7 @@
   <div class="wrap hero-grid">
     <div class="reveal in-view">
       <div class="eyebrow"><span class="dot"></span> Open to entry level roles in Karachi</div>
-      <h1>I turn messy data into <span class="grad">dashboards people actually use.</span></h1>
+      <h1>I turn messy data into <span class="grad">interactive dashboards and actionable insights.</span></h1>
       <p class="lede">Final year CS student at SMIU. Two internships, six projects, and a stack built around Python, SQL, and interactive dashboards.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-chart-column"></i> View Projects</a>
@@ -528,38 +507,21 @@
 
     <div class="about-grid">
       <div class="profile-card reveal">
-        <div class="profile-photo">
-          <img src="haider-photo.jpg" alt="Muhammad Haider">
-        </div>
-        <div class="profile-meta">
-          <div class="pm-name">Muhammad Haider</div>
-          <div class="pm-role">Data Analyst</div>
-        </div>
-        <div class="profile-divider"></div>
+        <img class="profile-photo" src="haider-photo.jpg" alt="Muhammad Haider">
+        <div class="profile-name">Muhammad Haider</div>
+        <div class="profile-role">Data Analyst</div>
         <div class="profile-facts">
-          <div class="pf-row">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>SMIU Karachi (BSCS)</span>
-          </div>
-          <div class="pf-row">
-            <i class="fa-solid fa-briefcase"></i>
-            <span>FFC and PPL Intern</span>
-          </div>
-          <div class="pf-row">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Karachi, Pakistan</span>
-          </div>
-          <div class="pf-row hire">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Available for hire</span>
-          </div>
+          <div><i class="fa-solid fa-graduation-cap"></i> SMIU Karachi (BSCS)</div>
+          <div><i class="fa-solid fa-briefcase"></i> FFC and PPL Intern</div>
+          <div><i class="fa-solid fa-location-dot"></i> Karachi, Pakistan</div>
+          <div><i class="fa-solid fa-circle-check"></i> Available for hire</div>
         </div>
       </div>
 
       <div class="about-prose reveal">
-        <p>I am in my final semester of a BS in Computer Science at <strong>Sindh Madressatul Islam University, Karachi</strong>. My work sits at the intersection of data analysis and practical software, and most of what I know came from solving real problems rather than working through tutorials. The RM office at FFC was tracking assets on Excel with no real time visibility, so I rebuilt it as a Python dashboard with Pandas, Plotly, and Streamlit. Working on that every day, with a team that depended on it, taught me more than any single course could.</p>
-        <p>What keeps me in this field is the <strong>maths and logic side</strong> of it. I enjoy problems where the answer is already there, buried in the mess, and the job is to find it cleanly. That has taken me past dashboards into NLP and computer vision work, including an ambiguity analyzer for newspaper text and a facial recognition attendance system built from scratch.</p>
-        <p>I care about doing things properly, not just quickly. I would rather deliver one dashboard a team actually uses than ten that look good in a demo. If you are hiring someone who will ask the right questions, learn until the problem is solved, and stay grounded while doing it, that is the kind of work I am looking for.</p>
+        <p>I am in my final semester of a BS in Computer Science at <strong>Sindh Madressatul Islam University, Karachi</strong>, focused on turning raw data into dashboards and analysis that people actually use. Most of what I know about data, I learned by solving real problems. The RM office at FFC was tracking assets on Excel with no real time visibility, so I rebuilt it as a Python dashboard with Pandas, Plotly, and Streamlit.</p>
+        <p>My core stack is <strong>Python, SQL, and interactive dashboards</strong>. I use these to clean messy data, structure it into something meaningful, and deliver it in a form a non technical team can read at a glance. What pulls me in is the <strong>maths and logic side</strong> of this field, not just the tools. Give me a problem with a right answer hiding somewhere in the mess, and that is where I do my best work.</p>
+        <p>I care about doing things properly, not just quickly. I would rather build one dashboard a team actually depends on than ten that look good in a demo. If you are looking for someone who will show up, ask the boring questions, and keep learning until the problem is really solved, that is the kind of work I want to be doing.</p>
       </div>
     </div>
   </div>
@@ -573,10 +535,30 @@
         <h2>Two internships, <span>two different data problems.</span></h2>
         <div class="sec-sub">Real organizations, real systems, real mess to clean up.</div>
       </div>
-      <div class="sec-meta">2025<br>Karachi</div>
+      <div class="sec-meta">2026<br>Karachi</div>
     </div>
 
     <div class="exp-list">
+      <div class="exp-card reveal">
+        <div class="exp-meta">
+          <span class="em-date">3 to 28 Aug 2026</span>
+          <div class="em-type">Internship</div>
+        </div>
+        <div class="exp-body">
+          <h3>Information Technology Intern</h3>
+          <div class="eb-org">Pakistan Petroleum Limited (PPL), Karachi</div>
+          <ul>
+            <li>Managed medical department patient data using Excel and SQL, with a focus on accuracy and clean record keeping.</li>
+            <li>Handled database updates and reporting through a UI based software system, supporting daily department operations.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Excel</span>
+            <span class="exp-tag">SQL</span>
+            <span class="exp-tag">Database</span>
+          </div>
+        </div>
+      </div>
+
       <div class="exp-card reveal">
         <div class="exp-meta">
           <span class="em-date">Jul to Sep 2025</span>
@@ -594,26 +576,6 @@
             <span class="exp-tag">Pandas</span>
             <span class="exp-tag">Plotly</span>
             <span class="exp-tag">Streamlit</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-card reveal">
-        <div class="exp-meta">
-          <span class="em-date">3 to 28 Aug 2025</span>
-          <div class="em-type">Internship</div>
-        </div>
-        <div class="exp-body">
-          <h3>Information Technology Intern</h3>
-          <div class="eb-org">Pakistan Petroleum Limited (PPL), Karachi</div>
-          <ul>
-            <li>Managed medical department patient data using Excel and SQL, with a focus on accuracy and clean record keeping.</li>
-            <li>Handled database updates and reporting through a UI based software system, supporting daily department operations.</li>
-          </ul>
-          <div class="exp-tags">
-            <span class="exp-tag">Excel</span>
-            <span class="exp-tag">SQL</span>
-            <span class="exp-tag">Database</span>
           </div>
         </div>
       </div>
@@ -846,21 +808,21 @@
       <div class="cred-panel reveal">
         <h3>// Certifications</h3>
         <div class="cert">
-          <div class="cert-ico g"><i class="fa-solid fa-award"></i></div>
+          <div class="cert-ico"><i class="fa-solid fa-award"></i></div>
           <div class="cert-body">
             <div class="cb-name">Google Advanced Data Analytics</div>
             <div class="cb-iss">Google, via Coursera</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-ico gp"><i class="fa-brands fa-python"></i></div>
+          <div class="cert-ico"><i class="fa-brands fa-python"></i></div>
           <div class="cert-body">
             <div class="cb-name">Google Programming in Python</div>
             <div class="cb-iss">Google, via Coursera</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-ico smit"><i class="fa-solid fa-brain"></i></div>
+          <div class="cert-ico"><i class="fa-solid fa-brain"></i></div>
           <div class="cert-body">
             <div class="cb-name">AI and Data Science</div>
             <div class="cb-iss">SMIT, Saylani Mass IT Training</div>
@@ -871,21 +833,21 @@
       <div class="cred-panel reveal">
         <h3>// Activities and Involvement</h3>
         <div class="act">
-          <div class="act-ico conf"><i class="fa-solid fa-people-group"></i></div>
+          <div class="act-ico"><i class="fa-solid fa-people-group"></i></div>
           <div class="act-body">
             <div class="ab-name">ICCRT 2025</div>
             <div class="ab-note">International Conference on Computing and Related Technologies, SMIU Karachi. Volunteered across both days supporting conference operations and delegate coordination.</div>
           </div>
         </div>
         <div class="act">
-          <div class="act-ico res"><i class="fa-solid fa-microscope"></i></div>
+          <div class="act-ico"><i class="fa-solid fa-microscope"></i></div>
           <div class="act-body">
             <div class="ab-name">GRC 2026</div>
             <div class="ab-note">Global Research Conference. Attended and supported research sessions as a student participant.</div>
           </div>
         </div>
         <div class="act">
-          <div class="act-ico cap"><i class="fa-solid fa-rocket"></i></div>
+          <div class="act-ico"><i class="fa-solid fa-rocket"></i></div>
           <div class="act-body">
             <div class="ab-name">Career Accelerator Program, SMIU</div>
             <div class="ab-note">Professional development and career readiness sessions alongside Final Year Project volunteering, and more.</div>
@@ -894,7 +856,7 @@
       </div>
     </div>
 
-    <div class="contact-panel reveal">
+    <div class="contact-panel reveal" id="contact">
       <h3>Let us talk <span>data.</span></h3>
       <p class="contact-intro">Open to entry level Data Analyst, Database Administrator, SAP ERP Administrator, and Junior Data Scientist roles. If you are hiring or just want to talk about a project, reach out.</p>
       <div class="contact-links">
