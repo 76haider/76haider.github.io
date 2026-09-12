@@ -30,9 +30,6 @@
     --streamlit:#FF4B4B;
     --excel:#217346;
     --jupyter:#F37626;
-    --sql:#E38C00;
-    --dash:#00B4D8;
-    --ai:#9D4EDD;
   }
   html[data-theme="dark"]{
     --bg:#0B0F17;
@@ -136,27 +133,37 @@
   .nav-cta:hover{transform:translateY(-2px); box-shadow:0 14px 28px -10px var(--glow);}
   @media (max-width:860px){ .nav-links{display:none;} }
 
-  .hero{padding:64px 0 48px; position:relative;}
-  .hero-grid{display:grid; grid-template-columns:1.02fr 1.1fr; gap:48px; align-items:center;}
+  /* HERO */
+  .hero{padding:80px 0 56px; position:relative;}
+  .hero-grid{display:grid; grid-template-columns:1fr 1.05fr; gap:56px; align-items:center;}
   @media (max-width:980px){ .hero-grid{grid-template-columns:1fr; gap:40px;} }
   .eyebrow{display:inline-flex; align-items:center; gap:9px; padding:6px 13px; border-radius:100px;
     background:var(--accent-2-soft); border:1px solid color-mix(in srgb, var(--accent-2) 30%, transparent);
     font-family:var(--mono); font-size:0.72rem; color:var(--accent-2);
-    letter-spacing:0.03em; margin-bottom:22px;}
+    letter-spacing:0.03em; margin-bottom:26px;}
   .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent-2); animation:pulse 2s infinite;}
   @keyframes pulse{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:0.35; transform:scale(1.5);}}
-  .hero h1{font-size:clamp(2.2rem, 4vw, 3.3rem); font-weight:800; line-height:1.08; letter-spacing:-0.025em; color:var(--ink-strong);}
+
+  .hero h1{
+    font-size:clamp(2rem, 3.2vw, 2.7rem);
+    font-weight:800;
+    line-height:1.18;
+    letter-spacing:-0.025em;
+    color:var(--ink-strong);
+    max-width:14ch;
+  }
   .hero h1 .grad{background:linear-gradient(135deg, var(--accent), var(--accent-2));
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;}
-  .hero .lede{margin-top:20px; color:var(--muted); font-size:1.05rem; max-width:46ch;}
-  .hero-actions{display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;}
+
+  .hero .lede{margin-top:22px; color:var(--muted); font-size:1rem; max-width:44ch; line-height:1.65;}
+  .hero-actions{display:flex; gap:12px; margin-top:32px; flex-wrap:wrap;}
   .btn{display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:8px; font-weight:600; font-size:0.92rem; transition:all .22s ease; border:1px solid transparent;}
   .btn-primary{background:linear-gradient(135deg, var(--accent), var(--blue)); color:#04121A; font-weight:700; box-shadow:0 12px 26px -10px var(--glow);}
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 16px 32px -10px var(--glow);}
   .btn-ghost{background:var(--card); border-color:var(--border); color:var(--text);}
   .btn-ghost:hover{background:var(--accent-soft); border-color:var(--accent); color:var(--accent);}
   .btn i{font-size:0.82rem;}
-  .hero-stats{display:flex; gap:32px; margin-top:34px; padding-top:24px; border-top:1px solid var(--border);}
+  .hero-stats{display:flex; gap:36px; margin-top:38px; padding-top:26px; border-top:1px solid var(--border);}
   .hero-stat .hs-num{font-family:var(--mono); font-weight:700; color:var(--accent); font-size:1.55rem; line-height:1;}
   .hero-stat .hs-lbl{font-family:var(--mono); font-size:0.63rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin-top:6px;}
 
@@ -185,13 +192,13 @@
   .kpi .k-num .sfx{font-size:0.82rem; color:var(--accent-2);}
   .kpi .k-lbl{font-size:0.68rem; color:var(--muted); margin-top:5px; text-transform:uppercase; letter-spacing:0.05em;}
 
-  section{padding:76px 0; position:relative;}
-  .sec-head{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:38px; padding-bottom:20px; border-bottom:1px solid var(--border); flex-wrap:wrap;}
-  .sec-head .sec-num{font-family:var(--mono); font-size:0.7rem; color:var(--accent); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px;}
+  /* SECTIONS */
+  section{padding:80px 0; position:relative;}
+  .sec-head{margin-bottom:44px; max-width:64ch;}
+  .sec-kicker{font-family:var(--mono); font-size:0.68rem; color:var(--accent); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:10px;}
   .sec-head h2{font-size:clamp(1.6rem, 2.6vw, 2rem); font-weight:700; letter-spacing:-0.015em; line-height:1.15; color:var(--ink-strong);}
   .sec-head h2 span{color:var(--accent);}
-  .sec-head .sec-sub{color:var(--muted); font-size:0.96rem; margin-top:8px; max-width:56ch;}
-  .sec-head .sec-meta{font-family:var(--mono); font-size:0.7rem; color:var(--muted-2); text-align:right; white-space:nowrap; line-height:1.5;}
+  .sec-head .sec-sub{color:var(--muted); font-size:0.96rem; margin-top:10px;}
 
   /* ABOUT */
   .about-grid{display:grid; grid-template-columns:300px 1fr; gap:40px; align-items:start;}
@@ -210,7 +217,6 @@
   .about-prose p{font-size:1rem; color:var(--body-text); max-width:62ch; line-height:1.8;}
   .about-prose p + p{margin-top:18px;}
   .about-prose strong{color:var(--accent); font-weight:600;}
-  .about-prose .em{color:var(--accent-2); font-weight:600;}
 
   /* EXPERIENCE */
   .exp-list{display:flex; flex-direction:column; gap:16px;}
@@ -255,19 +261,11 @@
     opacity:0; transition:opacity .3s; pointer-events:none;}
   .proj-card:hover::before{opacity:1;}
   .proj-top{display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:12px;}
-  .proj-icon{width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1.1rem;}
-  .proj-icon.dash{background:rgba(0,180,216,0.14); color:var(--dash);}
-  .proj-icon.ai{background:rgba(157,78,221,0.14); color:var(--ai);}
-  .proj-icon.db{background:rgba(0,117,143,0.14); color:#4FB3CC;}
-  .proj-icon.hw{background:rgba(243,118,38,0.14); color:var(--jupyter);}
-  html[data-theme="bright"] .proj-icon.db{color:var(--mysql);}
+  .proj-icon{width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+    background:var(--accent-soft); color:var(--accent);}
   .proj-cat{font-family:var(--mono); font-size:0.62rem; padding:3px 9px; border-radius:4px;
-    text-transform:uppercase; letter-spacing:0.05em; white-space:nowrap; border:1px solid;}
-  .proj-cat.dash{color:var(--dash); background:rgba(0,180,216,0.1); border-color:rgba(0,180,216,0.3);}
-  .proj-cat.ai{color:var(--ai); background:rgba(157,78,221,0.1); border-color:rgba(157,78,221,0.3);}
-  .proj-cat.db{color:#4FB3CC; background:rgba(0,117,143,0.1); border-color:rgba(0,117,143,0.3);}
-  html[data-theme="bright"] .proj-cat.db{color:var(--mysql); border-color:rgba(0,117,143,0.4);}
-  .proj-cat.hw{color:var(--jupyter); background:rgba(243,118,38,0.1); border-color:rgba(243,118,38,0.3);}
+    text-transform:uppercase; letter-spacing:0.05em; white-space:nowrap; border:1px solid var(--border);
+    color:var(--muted); background:var(--card-solid);}
   .proj-title{font-size:1.08rem; font-weight:700; color:var(--ink-strong); line-height:1.3; margin-bottom:9px;}
   .proj-desc{font-size:0.9rem; color:var(--muted); line-height:1.55; flex:1;}
   .proj-foot{display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding-top:14px; border-top:1px solid var(--border-2); gap:12px;}
@@ -293,19 +291,12 @@
   .skill-bars{display:flex; flex-direction:column; gap:17px;}
   .sk-bar .sk-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px;}
   .sk-bar .sk-name{font-size:0.9rem; color:var(--text); font-weight:500; display:flex; align-items:center; gap:8px;}
-  .sk-bar .sk-name i{font-size:0.95rem;}
+  .sk-bar .sk-name i{font-size:0.95rem; color:var(--accent);}
   .sk-val{font-family:var(--mono); font-size:0.72rem; color:var(--accent); font-weight:600;}
   .sk-track{height:7px; background:var(--card-solid); border-radius:100px; overflow:hidden; border:1px solid var(--border-2);}
-  .sk-fill{height:100%; width:0; border-radius:100px; box-shadow:0 0 12px -2px var(--glow); transition:width 1.3s cubic-bezier(.22,1,.36,1);}
-  .sk-fill.python{background:linear-gradient(90deg, var(--py-blue), var(--py-yellow));}
-  .sk-fill.sql{background:linear-gradient(90deg, var(--sql), #FFB84D);}
-  .sk-fill.dash{background:linear-gradient(90deg, var(--dash), var(--accent-2));}
-  .sk-fill.db{background:linear-gradient(90deg, var(--pg), #6BAED6);}
-  .sk-fill.dsa{background:linear-gradient(90deg, var(--accent), var(--blue));}
-  .sk-fill.ai{background:linear-gradient(90deg, var(--ai), #E0AAFF);}
-  .i-py{color:var(--py-blue);} .i-sql{color:var(--sql);} .i-dash{color:var(--dash);} .i-db{color:var(--pg);} .i-dsa{color:var(--accent);} .i-ai{color:var(--ai);}
-  html[data-theme="bright"] .i-py{color:#2A5A82;} html[data-theme="bright"] .i-ai{color:#7B2FBF;}
-  html[data-theme="bright"] .i-dash{color:#0090B0;} html[data-theme="bright"] .i-sql{color:#B36E00;}
+  .sk-fill{height:100%; width:0; border-radius:100px;
+    background:linear-gradient(90deg, var(--accent), var(--accent-2));
+    box-shadow:0 0 12px -2px var(--glow); transition:width 1.3s cubic-bezier(.22,1,.36,1);}
 
   .tool-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(96px,1fr)); gap:9px;}
   .tool{background:var(--card-solid); border:1px solid var(--border); border-radius:9px; padding:14px 8px;
@@ -315,7 +306,7 @@
   .tool:hover{border-color:var(--accent); transform:translateY(-3px);}
   .tool:hover i{transform:scale(1.12);}
   .t-py i{color:var(--py-blue);} .tool.t-py:hover{border-color:var(--py-blue); background:rgba(55,118,171,0.08);}
-  .t-sql i{color:var(--sql);} .tool.t-sql:hover{border-color:var(--sql); background:rgba(227,140,0,0.08);}
+  .t-sql i{color:#E38C00;} .tool.t-sql:hover{border-color:#E38C00; background:rgba(227,140,0,0.08);}
   .t-pandas i{color:#8E67F0;} .tool.t-pandas:hover{border-color:#8E67F0; background:rgba(142,103,240,0.08);}
   .t-numpy i{color:var(--numpy);} .tool.t-numpy:hover{border-color:var(--numpy); background:rgba(77,119,207,0.08);}
   .t-excel i{color:var(--excel);} .tool.t-excel:hover{border-color:var(--excel); background:rgba(33,115,70,0.08);}
@@ -351,21 +342,22 @@
   .act-body .ab-note{font-size:0.83rem; color:var(--muted); margin-top:4px; line-height:1.5;}
 
   /* CONTACT */
-  .contact-panel{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:32px 34px; position:relative; overflow:hidden; backdrop-filter:blur(12px); transition:background .35s ease, border-color .35s ease; margin-top:20px;}
-  .contact-panel::before{content:''; position:absolute; top:-90px; right:-90px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, var(--accent-soft), transparent 70%);}
+  .contact-wrap{max-width:760px; margin:24px auto 0;}
+  .contact-panel{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:30px 32px; position:relative; overflow:hidden; backdrop-filter:blur(12px); transition:background .35s ease, border-color .35s ease;}
+  .contact-panel::before{content:''; position:absolute; top:-90px; right:-90px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, var(--accent-soft), transparent 70%);}
   .contact-panel > *{position:relative; z-index:1;}
-  .contact-panel h3{font-size:1.5rem; font-weight:700; margin-bottom:12px; color:var(--ink-strong);}
+  .contact-panel h3{font-size:1.4rem; font-weight:700; margin-bottom:10px; color:var(--ink-strong);}
   .contact-panel h3 span{color:var(--accent);}
-  .contact-intro{color:var(--muted); font-size:0.95rem; margin-bottom:24px; max-width:60ch; line-height:1.6;}
-  .contact-links{display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:20px;}
+  .contact-intro{color:var(--muted); font-size:0.93rem; margin-bottom:22px; line-height:1.65;}
+  .contact-links{display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:18px;}
   @media (max-width:640px){ .contact-links{grid-template-columns:1fr;} }
   .c-link{display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:8px; font-size:0.88rem; color:var(--text); border:1px solid var(--border-2); transition:border-color .2s, background .2s, color .2s;}
-  .c-link i{width:16px; font-size:0.82rem; color:var(--accent);}
+  .c-link i:first-child{width:16px; font-size:0.82rem; color:var(--accent);}
   .c-link .c-arr{margin-left:auto; opacity:0.35; font-size:0.72rem; transition:opacity .2s, transform .2s;}
   .c-link:hover{border-color:var(--accent); background:var(--accent-soft); color:var(--accent);}
   .c-link:hover .c-arr{opacity:1; transform:translateX(3px);}
-  .resume-btn{margin-top:8px; display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:7px;
-    background:linear-gradient(135deg, var(--accent), var(--blue)); color:#04121A; font-weight:700; font-size:0.88rem;
+  .resume-btn{margin-top:6px; display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:7px;
+    background:linear-gradient(135deg, var(--accent), var(--blue)); color:#04121A; font-weight:700; font-size:0.86rem;
     box-shadow:0 12px 26px -12px var(--glow); transition:transform .2s, box-shadow .2s; width:fit-content;}
   .resume-btn:hover{transform:translateY(-2px); box-shadow:0 16px 32px -12px var(--glow);}
 
@@ -478,11 +470,11 @@
 
       <div class="kpi-row">
         <div class="kpi">
-          <div class="k-num"><span class="count-up" data-target="90">0</span><span class="sfx">%</span></div>
+          <div class="k-num"><span class="count-up" data-target="82">0</span><span class="sfx">%</span></div>
           <div class="k-lbl">Python</div>
         </div>
         <div class="kpi">
-          <div class="k-num"><span class="count-up" data-target="85">0</span><span class="sfx">%</span></div>
+          <div class="k-num"><span class="count-up" data-target="84">0</span><span class="sfx">%</span></div>
           <div class="k-lbl">SQL</div>
         </div>
         <div class="kpi">
@@ -497,12 +489,9 @@
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div>
-        <div class="sec-num">01 / About</div>
-        <h2>Who I am, <span>briefly.</span></h2>
-        <div class="sec-sub">Final year CS student who learned data by breaking things, then fixing them properly.</div>
-      </div>
-      <div class="sec-meta">SMIU Karachi<br>BSCS, Final Semester</div>
+      <div class="sec-kicker">About</div>
+      <h2>Who I am, <span>briefly.</span></h2>
+      <div class="sec-sub">Final year CS student who learned data by breaking things, then fixing them properly.</div>
     </div>
 
     <div class="about-grid">
@@ -514,7 +503,6 @@
           <div><i class="fa-solid fa-graduation-cap"></i> SMIU Karachi (BSCS)</div>
           <div><i class="fa-solid fa-briefcase"></i> FFC and PPL Intern</div>
           <div><i class="fa-solid fa-location-dot"></i> Karachi, Pakistan</div>
-          <div><i class="fa-solid fa-circle-check"></i> Available for hire</div>
         </div>
       </div>
 
@@ -530,12 +518,9 @@
 <section id="experience" style="background:var(--bg-elev); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div>
-        <div class="sec-num">02 / Experience</div>
-        <h2>Two internships, <span>two different data problems.</span></h2>
-        <div class="sec-sub">Real organizations, real systems, real mess to clean up.</div>
-      </div>
-      <div class="sec-meta">2026<br>Karachi</div>
+      <div class="sec-kicker">Experience</div>
+      <h2>Two internships, <span>two different data problems.</span></h2>
+      <div class="sec-sub">Real organizations, real systems, real mess to clean up.</div>
     </div>
 
     <div class="exp-list">
@@ -586,12 +571,9 @@
 <section id="projects">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div>
-        <div class="sec-num">03 / Projects</div>
-        <h2>Selected <span>work.</span></h2>
-        <div class="sec-sub">Six projects I would show first in an interview, across dashboards, databases, NLP, and computer vision.</div>
-      </div>
-      <div class="sec-meta">2024 to 2025<br>6 projects</div>
+      <div class="sec-kicker">Projects</div>
+      <h2>Selected <span>work.</span></h2>
+      <div class="sec-sub">Six projects I would show first in an interview, across dashboards, databases, NLP, and computer vision.</div>
     </div>
 
     <div class="proj-toolbar reveal">
@@ -607,8 +589,8 @@
 
       <div class="proj-card reveal" data-cat="dashboard">
         <div class="proj-top">
-          <div class="proj-icon dash"><i class="fa-solid fa-chart-line"></i></div>
-          <div class="proj-cat dash">Dashboard</div>
+          <div class="proj-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="proj-cat">Dashboard</div>
         </div>
         <div class="proj-title">FFC Asset Tracking Dashboard</div>
         <div class="proj-desc">Replaced a manual Excel process with a live dashboard built for a real internal team. Login, search filters, and automated status reports. Not a tutorial dataset.</div>
@@ -624,8 +606,8 @@
 
       <div class="proj-card reveal" data-cat="ai">
         <div class="proj-top">
-          <div class="proj-icon ai"><i class="fa-solid fa-brain"></i></div>
-          <div class="proj-cat ai">AI and ML</div>
+          <div class="proj-icon"><i class="fa-solid fa-brain"></i></div>
+          <div class="proj-cat">AI and ML</div>
         </div>
         <div class="proj-title">Semantic Ambiguity Analyzer</div>
         <div class="proj-desc">NLP tool that scans newspaper text and flags 8 types of ambiguity with severity scoring. Accepts txt, pdf, and docx input.</div>
@@ -640,8 +622,8 @@
 
       <div class="proj-card reveal" data-cat="database">
         <div class="proj-top">
-          <div class="proj-icon db"><i class="fa-solid fa-book-bookmark"></i></div>
-          <div class="proj-cat db">Database</div>
+          <div class="proj-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+          <div class="proj-cat">Database</div>
         </div>
         <div class="proj-title">Library Management System</div>
         <div class="proj-desc">Desktop app with full user authentication, borrowing and return tracking, and an analytics dashboard on top of a MySQL backend.</div>
@@ -656,8 +638,8 @@
 
       <div class="proj-card reveal" data-cat="hardware">
         <div class="proj-top">
-          <div class="proj-icon hw"><i class="fa-solid fa-microchip"></i></div>
-          <div class="proj-cat hw">Hardware</div>
+          <div class="proj-icon"><i class="fa-solid fa-microchip"></i></div>
+          <div class="proj-cat">Hardware</div>
         </div>
         <div class="proj-title">RFID Access Control System</div>
         <div class="proj-desc">Secure access system built on Arduino Uno. Reads authorized tags, grants access, and logs every authentication attempt at 95 percent reliability.</div>
@@ -672,8 +654,8 @@
 
       <div class="proj-card reveal" data-cat="ai">
         <div class="proj-top">
-          <div class="proj-icon ai"><i class="fa-solid fa-camera"></i></div>
-          <div class="proj-cat ai">AI and ML</div>
+          <div class="proj-icon"><i class="fa-solid fa-camera"></i></div>
+          <div class="proj-cat">AI and ML</div>
         </div>
         <div class="proj-title">Facial Recognition Attendance</div>
         <div class="proj-desc">Attendance system that identifies faces in real time and logs them automatically. No sign in sheet required.</div>
@@ -688,8 +670,8 @@
 
       <div class="proj-card reveal" data-cat="ai">
         <div class="proj-top">
-          <div class="proj-icon ai"><i class="fa-solid fa-robot"></i></div>
-          <div class="proj-cat ai">AI and ML</div>
+          <div class="proj-icon"><i class="fa-solid fa-robot"></i></div>
+          <div class="proj-cat">AI and ML</div>
         </div>
         <div class="proj-title">AI Report Writing Agent</div>
         <div class="proj-desc">AI agent that takes a research topic, gathers information, and generates a structured report automatically for technical and business documentation.</div>
@@ -716,12 +698,9 @@
 <section id="skills" style="background:var(--bg-elev); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div>
-        <div class="sec-num">04 / Skills</div>
-        <h2>The toolkit <span>behind the projects.</span></h2>
-        <div class="sec-sub">What I reach for, and how confident I am with it.</div>
-      </div>
-      <div class="sec-meta">Self assessed<br>proficiency</div>
+      <div class="sec-kicker">Skills</div>
+      <h2>The toolkit <span>behind the projects.</span></h2>
+      <div class="sec-sub">What I reach for, and how confident I am with it.</div>
     </div>
 
     <div class="skills-layout">
@@ -730,45 +709,45 @@
         <div class="skill-bars">
           <div class="sk-bar">
             <div class="sk-top">
-              <span class="sk-name"><i class="fa-brands fa-python i-py"></i>Python</span>
-              <span class="sk-val">90%</span>
-            </div>
-            <div class="sk-track"><div class="sk-fill python" data-fill="90"></div></div>
-          </div>
-          <div class="sk-bar">
-            <div class="sk-top">
-              <span class="sk-name"><i class="fa-solid fa-database i-sql"></i>SQL</span>
-              <span class="sk-val">85%</span>
-            </div>
-            <div class="sk-track"><div class="sk-fill sql" data-fill="85"></div></div>
-          </div>
-          <div class="sk-bar">
-            <div class="sk-top">
-              <span class="sk-name"><i class="fa-solid fa-chart-column i-dash"></i>Dashboards and Visualization</span>
+              <span class="sk-name"><i class="fa-brands fa-python"></i>Python</span>
               <span class="sk-val">82%</span>
             </div>
-            <div class="sk-track"><div class="sk-fill dash" data-fill="82"></div></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="82"></div></div>
           </div>
           <div class="sk-bar">
             <div class="sk-top">
-              <span class="sk-name"><i class="fa-solid fa-server i-db"></i>Databases, MySQL and PostgreSQL</span>
+              <span class="sk-name"><i class="fa-solid fa-database"></i>SQL</span>
+              <span class="sk-val">84%</span>
+            </div>
+            <div class="sk-track"><div class="sk-fill" data-fill="84"></div></div>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-top">
+              <span class="sk-name"><i class="fa-solid fa-chart-column"></i>Dashboards and Visualization</span>
               <span class="sk-val">78%</span>
             </div>
-            <div class="sk-track"><div class="sk-fill db" data-fill="78"></div></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="78"></div></div>
           </div>
           <div class="sk-bar">
             <div class="sk-top">
-              <span class="sk-name"><i class="fa-solid fa-diagram-project i-dsa"></i>Data Structures and Algorithms</span>
+              <span class="sk-name"><i class="fa-solid fa-server"></i>Databases, MySQL and PostgreSQL</span>
               <span class="sk-val">80%</span>
             </div>
-            <div class="sk-track"><div class="sk-fill dsa" data-fill="80"></div></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="80"></div></div>
           </div>
           <div class="sk-bar">
             <div class="sk-top">
-              <span class="sk-name"><i class="fa-solid fa-brain i-ai"></i>AI, ML, and NLP</span>
+              <span class="sk-name"><i class="fa-solid fa-diagram-project"></i>Data Structures and Algorithms</span>
+              <span class="sk-val">86%</span>
+            </div>
+            <div class="sk-track"><div class="sk-fill" data-fill="86"></div></div>
+          </div>
+          <div class="sk-bar">
+            <div class="sk-top">
+              <span class="sk-name"><i class="fa-solid fa-brain"></i>AI, ML, and NLP</span>
               <span class="sk-val">60%</span>
             </div>
-            <div class="sk-track"><div class="sk-fill ai" data-fill="60"></div></div>
+            <div class="sk-track"><div class="sk-fill" data-fill="60"></div></div>
           </div>
         </div>
       </div>
@@ -797,11 +776,9 @@
 <section id="credentials">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div>
-        <div class="sec-num">05 / Credentials</div>
-        <h2>Certifications and <span>involvement.</span></h2>
-        <div class="sec-sub">Formal certifications on the left, active involvement on the right.</div>
-      </div>
+      <div class="sec-kicker">Credentials</div>
+      <h2>Certifications and <span>involvement.</span></h2>
+      <div class="sec-sub">Formal certifications earned, and active involvement across university programs and conferences.</div>
     </div>
 
     <div class="cred-grid">
@@ -855,31 +832,37 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="contact-panel reveal" id="contact">
-      <h3>Let us talk <span>data.</span></h3>
-      <p class="contact-intro">Open to entry level Data Analyst, Database Administrator, SAP ERP Administrator, and Junior Data Scientist roles. If you are hiring or just want to talk about a project, reach out.</p>
-      <div class="contact-links">
-        <a class="c-link" href="mailto:haiderkhaan0800@gmail.com">
-          <i class="fa-solid fa-envelope"></i> haiderkhaan0800@gmail.com
-          <i class="fa-solid fa-arrow-right c-arr"></i>
-        </a>
-        <a class="c-link" href="tel:+923190142430">
-          <i class="fa-solid fa-phone"></i> +92 319 0142430
-          <i class="fa-solid fa-arrow-right c-arr"></i>
-        </a>
-        <a class="c-link" href="https://www.linkedin.com/in/76haiderkhan" target="_blank" rel="noopener">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
-          <i class="fa-solid fa-arrow-right c-arr"></i>
-        </a>
-        <a class="c-link" href="https://github.com/76haider" target="_blank" rel="noopener">
-          <i class="fa-brands fa-github"></i> GitHub
-          <i class="fa-solid fa-arrow-right c-arr"></i>
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-wrap reveal">
+      <div class="contact-panel">
+        <h3>Let us talk <span>data.</span></h3>
+        <p class="contact-intro">Open to entry level Data Analyst, Database Administrator, SAP ERP Administrator, and Junior Data Scientist roles. If you are hiring or just want to talk about a project, reach out.</p>
+        <div class="contact-links">
+          <a class="c-link" href="mailto:haiderkhaan0800@gmail.com">
+            <i class="fa-solid fa-envelope"></i> haiderkhaan0800@gmail.com
+            <i class="fa-solid fa-arrow-right c-arr"></i>
+          </a>
+          <a class="c-link" href="tel:+923190142430">
+            <i class="fa-solid fa-phone"></i> +92 319 0142430
+            <i class="fa-solid fa-arrow-right c-arr"></i>
+          </a>
+          <a class="c-link" href="https://www.linkedin.com/in/76haiderkhan" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+            <i class="fa-solid fa-arrow-right c-arr"></i>
+          </a>
+          <a class="c-link" href="https://github.com/76haider" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+            <i class="fa-solid fa-arrow-right c-arr"></i>
+          </a>
+        </div>
+        <a class="resume-btn" href="Haider_Resume.pdf" download>
+          <i class="fa-solid fa-file-arrow-down"></i> Download resume (PDF)
         </a>
       </div>
-      <a class="resume-btn" href="Haider_Resume.pdf" download>
-        <i class="fa-solid fa-file-arrow-down"></i> Download resume (PDF)
-      </a>
     </div>
   </div>
 </section>
@@ -922,9 +905,9 @@ window.addEventListener('scroll', ()=>{
 
 const heroCtx = document.getElementById('heroChart').getContext('2d');
 const stacks = {
-  all:      { labels: ['Python', 'SQL', 'Streamlit', 'Pandas', 'MySQL'], data: [92, 88, 85, 90, 82] },
-  analytics:{ labels: ['Pandas', 'NumPy', 'Plotly', 'Excel', 'SQL'],      data: [90, 84, 86, 88, 88] },
-  dev:      { labels: ['Python', 'MySQL', 'OpenCV', 'Git', 'Tkinter'],    data: [92, 82, 78, 85, 80] }
+  all:      { labels: ['Python', 'SQL', 'Streamlit', 'Pandas', 'MySQL'], data: [82, 84, 78, 80, 78] },
+  analytics:{ labels: ['Pandas', 'NumPy', 'Plotly', 'Excel', 'SQL'],      data: [80, 76, 78, 84, 84] },
+  dev:      { labels: ['Python', 'MySQL', 'OpenCV', 'Git', 'Tkinter'],    data: [82, 78, 70, 80, 74] }
 };
 
 function chartColors(){
